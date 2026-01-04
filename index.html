@@ -1,0 +1,100 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="robots" content="index, follow">
+  <title>Importancia de Pagar Recibos Públicos</title>
+  <style>
+    /* Reset CSS para asegurar consistencia entre navegadores */
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+    body {
+      font-family: Arial, sans-serif;
+      background-color: #f7f7f7;
+      color: #333;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      height: 100vh;
+      margin: 0;
+    }
+    .container {
+      text-align: center;
+      max-width: 800px;
+      padding: 20px;
+    }
+    h1 {
+      font-size: 2.5rem;
+      margin-bottom: 20px;
+    }
+    p {
+      font-size: 1.2rem;
+      margin-bottom: 30px;
+    }
+    .cta-button {
+      background-color: #007BFF;
+      color: white;
+      padding: 15px 30px;
+      font-size: 1.5rem;
+      border: none;
+      border-radius: 50px;
+      cursor: pointer;
+      text-transform: uppercase;
+      box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+      transition: background-color 0.3s, transform 0.3s;
+    }
+    .cta-button:hover {
+      background-color: #0056b3;
+      transform: scale(1.05);
+    }
+    .cta-button:focus {
+      outline: none;
+    }
+
+    /* Responsividad para dispositivos móviles */
+    @media (max-width: 600px) {
+      h1 {
+        font-size: 2rem;
+      }
+      .cta-button {
+        font-size: 1.2rem;
+        padding: 12px 25px;
+      }
+    }
+  </style>
+</head>
+<body>
+
+  <div class="container">
+    <h1>La Importancia de Pagar Tus Recibos Públicos</h1>
+    <p>Es fundamental mantener al día el pago de tus recibos públicos para evitar sanciones, interrupciones en el servicio, y contribuir al desarrollo de tu comunidad. Realiza tus pagos de manera rápida, segura y cómoda.</p>
+    <button class="cta-button" id="ctaButton">Consulta aquí</button>
+  </div>
+
+  <script>
+    // Verifica si el usuario accedió desde un anuncio de Google Ads
+    window.onload = function() {
+      const urlParams = new URLSearchParams(window.location.search);
+      const fromGoogleAds = urlParams.has('gclid'); // Verifica si existe el parámetro gclid (Google Click ID)
+      
+      const ctaButton = document.getElementById('ctaButton');
+      
+      // Si el usuario no vino de un anuncio, el botón no debe redirigir
+      if (!fromGoogleAds) {
+        ctaButton.addEventListener('click', function() {
+          alert("Para consultas, accede a través de un anuncio de Google Ads.");
+        });
+      } else {
+        ctaButton.addEventListener('click', function() {
+          window.location.href = 'index.html'; // Redirige solo si el usuario viene de un anuncio
+        });
+      }
+    }
+  </script>
+  
+</body>
+</html>
