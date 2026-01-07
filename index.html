@@ -1,553 +1,264 @@
 <!DOCTYPE html>
 <html lang="es">
 <head>
-  <meta charset="utf-8" />
-  <meta name="viewport" content="width=device-width,initial-scale=1" />
-  <meta name="robots" content="index, follow" />
-  <title>Importancia de Pagar Recibos Públicos</title>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="Guía informativa sobre la importancia y beneficios del pago puntual de servicios públicos.">
+  <title>Gestión Responsable de Servicios Públicos</title>
+  
   <style>
-    :root{
-      --bg:#0f1724;
-      --card:#0b1220;
-      --muted:#98a0b3;
-      --accent:#0066ff;
-      --accent-2:#00bfa6;
-      --glass: rgba(255,255,255,0.03);
-      --radius:16px;
-      --maxw:1100px;
-      --shadow: 0 6px 20px rgba(2,6,23,0.6);
-      font-synthesis: none;
+    :root {
+      --primary: #2563eb;
+      --primary-dark: #1e40af;
+      --secondary: #64748b;
+      --bg: #f8fafc;
+      --text: #1e293b;
+      --white: #ffffff;
     }
 
-    /* Reset básico */
-    *{box-sizing:border-box;margin:0;padding:0}
-    html,body{height:100%}
-    body{
-      font-family: Inter, "Segoe UI", Roboto, Arial, sans-serif;
-      background: linear-gradient(180deg,#071028 0%, #07182c 60%);
-      color:#e6eef8;
-      -webkit-font-smoothing:antialiased;
-      -moz-osx-font-smoothing:grayscale;
-      display:flex;
-      justify-content:center;
-      padding:40px 20px;
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
     }
 
-    .wrap{
-      width:100%;
-      max-width:var(--maxw);
-      background: linear-gradient(180deg, rgba(255,255,255,0.02), rgba(255,255,255,0.01));
-      border-radius:20px;
-      padding:28px;
-      box-shadow: var(--shadow);
-      border: 1px solid rgba(255,255,255,0.03);
-      backdrop-filter: blur(6px);
+    body {
+      font-family: 'Segoe UI', Roboto, Helvetica, Arial, sans-serif;
+      background-color: var(--bg);
+      color: var(--text);
+      line-height: 1.6;
+      overflow-x: hidden;
     }
 
-    header{
-      display:flex;
-      align-items:center;
-      justify-content:space-between;
-      gap:16px;
-      margin-bottom:20px;
-    }
-    .brand{
-      display:flex;
-      gap:14px;
-      align-items:center;
-    }
-    .logo{
-      width:54px;height:54px;border-radius:12px;
-      display:grid;place-items:center;
-      background: linear-gradient(135deg,var(--accent),var(--accent-2));
-      box-shadow: 0 6px 18px rgba(0,102,255,0.18);
-      font-weight:700;
-      font-size:18px;
-    }
-    .brand h2{font-size:1.1rem;letter-spacing:0.2px;margin-bottom:2px}
-    .brand p{font-size:0.85rem;color:var(--muted);margin-top:0}
-
-    nav{display:flex;gap:12px;align-items:center}
-    .nav-btn{
-      background:transparent;border:1px solid rgba(255,255,255,0.04);
-      color:var(--muted);padding:8px 12px;border-radius:10px;font-size:0.9rem;
-    }
-    .nav-btn.primary{
-      background: linear-gradient(90deg,var(--accent),var(--accent-2));
-      color:white;border:none;box-shadow:0 8px 28px rgba(0,110,255,0.12);
+    /* Animación de entrada */
+    @keyframes fadeIn {
+      from { opacity: 0; transform: translateY(20px); }
+      to { opacity: 1; transform: translateY(0); }
     }
 
-    /* Hero */
-    .hero{
-      display:grid;
-      grid-template-columns: 1fr 420px;
-      gap:24px;
-      align-items:center;
-      margin-bottom:26px;
+    .hero {
+      background: linear-gradient(135deg, #1e3a8a 0%, #2563eb 100%);
+      color: var(--white);
+      padding: 80px 20px;
+      text-align: center;
+      clip-path: polygon(0 0, 100% 0, 100% 90%, 0% 100%);
     }
 
-    .hero-left h1{
-      font-size:2.2rem;
-      line-height:1.05;
-      margin-bottom:12px;
-    }
-    .hero-left p{color:var(--muted);font-size:1rem;margin-bottom:18px}
-
-    .cta-row{display:flex;gap:12px;flex-wrap:wrap;align-items:center}
-    .cta-button{
-      background: linear-gradient(90deg,var(--accent),var(--accent-2));
-      color:white;padding:14px 22px;border-radius:12px;border:none;
-      font-weight:600;cursor:pointer;box-shadow:0 12px 30px rgba(0,110,255,0.14);
-      transition:transform .18s ease, box-shadow .18s;
-    }
-    .cta-button:hover{transform:translateY(-3px)}
-    .ghost{background:transparent;border:1px solid rgba(255,255,255,0.06);color:var(--muted);padding:12px 16px;border-radius:12px}
-
-    /* Right column: quick card */
-    .card{
-      background: linear-gradient(180deg, rgba(255,255,255,0.02), rgba(255,255,255,0.01));
-      padding:18px;border-radius:14px;border:1px solid rgba(255,255,255,0.03);
-      box-shadow: 0 8px 30px rgba(2,6,23,0.6);
-    }
-    .card h3{font-size:1rem;margin-bottom:8px}
-    .card p{color:var(--muted);font-size:0.95rem;margin-bottom:12px}
-
-    .badge{display:inline-block;padding:6px 10px;border-radius:999px;background:rgba(255,255,255,0.03);color:var(--accent);font-weight:600;margin-bottom:10px}
-
-    /* Info grid */
-    .grid{
-      display:grid;
-      grid-template-columns: repeat(3,1fr);
-      gap:14px;margin-top:20px;
-    }
-    .info{
-      background:var(--glass);padding:14px;border-radius:12px;border:1px solid rgba(255,255,255,0.02);
-    }
-    .info h4{font-size:1rem;margin-bottom:8px}
-    .info p{color:var(--muted);font-size:0.9rem}
-
-    /* Steps */
-    .steps{display:flex;gap:12px;margin-top:18px;flex-direction:column}
-    .step{display:flex;gap:12px;align-items:flex-start;background:rgba(255,255,255,0.02);padding:12px;border-radius:12px;border:1px solid rgba(255,255,255,0.015)}
-    .step .num{width:36px;height:36px;border-radius:10px;background:rgba(255,255,255,0.03);display:grid;place-items:center;font-weight:700;color:var(--accent)}
-    .step p{color:var(--muted);font-size:0.95rem}
-
-    /* Testimonials carousel simple */
-    .testimonials{margin-top:22px;background:linear-gradient(180deg, rgba(255,255,255,0.01), transparent);padding:12px;border-radius:12px}
-    .test-item{display:none}
-    .test-item.active{display:block}
-    .test-item p{color:var(--muted);font-size:0.95rem;margin-bottom:8px}
-    .test-item .who{font-weight:700;font-size:0.95rem;color:#fff}
-
-    .test-controls{display:flex;gap:8px;align-items:center;justify-content:flex-end;margin-top:8px}
-    .dot{width:10px;height:10px;border-radius:999px;background:rgba(255,255,255,0.06);cursor:pointer}
-    .dot.active{background:linear-gradient(90deg,var(--accent),var(--accent-2));box-shadow:0 6px 16px rgba(0,110,255,0.12)}
-
-    /* FAQ accordion */
-    .faq{margin-top:18px}
-    .qa{background:rgba(255,255,255,0.02);padding:12px;border-radius:10px;border:1px solid rgba(255,255,255,0.02);margin-bottom:8px}
-    .qa button{background:transparent;border:none;color:#e6eef8;font-size:1rem;font-weight:600;display:flex;justify-content:space-between;width:100%;cursor:pointer}
-    .qa .answer{color:var(--muted);margin-top:8px;display:none;font-size:0.95rem}
-    .qa.open .answer{display:block}
-
-    /* Footer form */
-    footer{margin-top:22px;display:flex;gap:16px;flex-wrap:wrap;align-items:center;justify-content:space-between}
-    .contact{
-      display:flex;gap:8px;align-items:center;background:rgba(255,255,255,0.02);padding:12px;border-radius:12px;border:1px solid rgba(255,255,255,0.02)
-    }
-    .contact input, .contact textarea{
-      background:transparent;border:none;color:inherit;outline:none;font-size:0.95rem;
-    }
-    .small{font-size:0.85rem;color:var(--muted)}
-
-    /* Modal */
-    .modal-backdrop{
-      position:fixed;inset:0;display:none;place-items:center;background:rgba(2,6,23,0.6);z-index:40;
-    }
-    .modal{
-      width:100%;max-width:760px;background: linear-gradient(180deg,#07122a,#051026);padding:18px;border-radius:14px;border:1px solid rgba(255,255,255,0.03);
-      box-shadow:0 30px 80px rgba(2,6,23,0.7);
-    }
-    .modal .grid-2{display:grid;grid-template-columns:1fr 320px;gap:12px}
-    .close-btn{background:transparent;border:1px solid rgba(255,255,255,0.04);padding:8px 10px;border-radius:10px;color:var(--muted);cursor:pointer}
-
-    /* Inputs */
-    .field{display:flex;flex-direction:column;gap:6px}
-    .input, .select, .textarea{
-      background:rgba(255,255,255,0.02);border:1px solid rgba(255,255,255,0.03);padding:10px;border-radius:10px;color:inherit;font-size:0.95rem;
-    }
-    .small-muted{font-size:0.85rem;color:var(--muted)}
-
-    /* Responsive */
-    @media (max-width:980px){
-      .hero{grid-template-columns:1fr}
-      .grid{grid-template-columns:repeat(2,1fr)}
-      .modal .grid-2{grid-template-columns:1fr}
-    }
-    @media (max-width:640px){
-      .grid{grid-template-columns:1fr}
-      header{flex-direction:column;align-items:flex-start;gap:12px}
-      .brand p{display:none}
+    .container {
+      max-width: 1000px;
+      margin: 0 auto;
+      padding: 0 20px;
     }
 
-    /* Focus styles */
-    :focus{outline: 3px solid rgba(0,110,255,0.16);outline-offset:2px}
+    .hero h1 {
+      font-size: 3rem;
+      margin-bottom: 20px;
+      animation: fadeIn 0.8s ease-out;
+    }
+
+    .hero p {
+      font-size: 1.25rem;
+      max-width: 700px;
+      margin: 0 auto 30px;
+      opacity: 0.9;
+    }
+
+    /* Grid de Información */
+    .info-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+      gap: 30px;
+      margin-top: -50px;
+      padding-bottom: 60px;
+    }
+
+    .card {
+      background: var(--white);
+      padding: 30px;
+      border-radius: 16px;
+      box-shadow: 0 10px 25px rgba(0,0,0,0.05);
+      transition: transform 0.3s ease;
+      animation: fadeIn 1s ease-out;
+    }
+
+    .card:hover {
+      transform: translateY(-10px);
+    }
+
+    .card h3 {
+      color: var(--primary);
+      margin-bottom: 15px;
+      font-size: 1.4rem;
+    }
+
+    /* Sección de Detalles */
+    .details {
+      padding: 60px 0;
+      background: #fff;
+    }
+
+    .details h2 {
+      text-align: center;
+      font-size: 2.2rem;
+      margin-bottom: 40px;
+    }
+
+    /* Estilo de Botones */
+    .cta-container {
+      text-align: center;
+      margin-top: 40px;
+    }
+
+    .cta-button {
+      background-color: var(--primary);
+      color: white;
+      padding: 18px 40px;
+      font-size: 1.2rem;
+      font-weight: bold;
+      border: none;
+      border-radius: 12px;
+      cursor: pointer;
+      text-transform: uppercase;
+      letter-spacing: 1px;
+      box-shadow: 0 8px 20px rgba(37, 99, 235, 0.3);
+      transition: all 0.3s ease;
+    }
+
+    .cta-button:hover {
+      background-color: var(--primary-dark);
+      box-shadow: 0 12px 25px rgba(37, 99, 235, 0.4);
+      transform: scale(1.02);
+    }
+
+    .cta-button:active {
+      transform: scale(0.98);
+    }
+
+    /* Modal Simple */
+    .modal {
+      display: none;
+      position: fixed;
+      top: 0; left: 0; width: 100%; height: 100%;
+      background: rgba(0,0,0,0.6);
+      justify-content: center;
+      align-items: center;
+      z-index: 1000;
+    }
+
+    .modal-content {
+      background: white;
+      padding: 40px;
+      border-radius: 20px;
+      max-width: 500px;
+      text-align: center;
+    }
+
+    footer {
+      text-align: center;
+      padding: 40px;
+      color: var(--secondary);
+      font-size: 0.9rem;
+    }
+
+    @media (max-width: 600px) {
+      .hero h1 { font-size: 2rem; }
+      .hero { padding: 60px 20px; }
+    }
   </style>
 </head>
 <body>
-  <div class="wrap" role="main">
-    <header>
-      <div class="brand">
-        <div class="logo" aria-hidden="true">RP</div>
-        <div>
-          <h2>Recibos al Día</h2>
-          <p>Pago responsable · Servicios continuos</p>
-        </div>
+
+  <header class="hero">
+    <div class="container">
+      <h1>Compromiso y Bienestar Común</h1>
+      <p>Descubre cómo tu pago puntual transforma la infraestructura de tu ciudad y garantiza la continuidad de los servicios esenciales.</p>
+    </div>
+  </header>
+
+  <main class="container">
+    <section class="info-grid">
+      <div class="card">
+        <h3>Continuidad</h3>
+        <p>Evita cortes inesperados y cargos adicionales por reconexión. La estabilidad de tu hogar comienza con un servicio ininterrumpido.</p>
       </div>
-      <nav>
-        <button class="nav-btn" id="openModalBtn">Consulta aquí</button>
-        <button class="nav-btn ghost" id="scrollToInfo">¿Por qué pagar?</button>
-      </nav>
-    </header>
-
-    <section class="hero" aria-labelledby="hero-title">
-      <div class="hero-left">
-        <h1 id="hero-title">Mantén tus servicios activos y ahorra sorpresas</h1>
-        <p>Cancelar tus recibos públicos a tiempo evita cortes de servicio, recargos, y contribuye a la inversión en infraestructura de tu comunidad. Aquí tienes herramientas para consultar, simular y organizar tus pagos.</p>
-        <div class="cta-row">
-          <button class="cta-button" id="ctaPrimary">Consulta aquí</button>
-          <button class="ghost" id="howToPayBtn">Cómo pagar</button>
-          <span class="small-muted">Gratis · Seguro · Privado</span>
-        </div>
-
-        <div class="grid" id="infoGrid" style="margin-top:18px">
-          <div class="info" aria-hidden="false">
-            <h4>Evita cortes</h4>
-            <p>No pagar a tiempo puede causar suspensión del servicio y costos adicionales.</p>
-          </div>
-          <div class="info">
-            <h4>Protege tu historial</h4>
-            <p>Un buen historial hace más sencillo acceder a créditos o servicios futuros.</p>
-          </div>
-          <div class="info">
-            <h4>Apoya el desarrollo</h4>
-            <p>Los recursos recaudados permiten mantenimiento e inversiones en redes y atención.</p>
-          </div>
-        </div>
-
-        <div class="steps" aria-label="Pasos recomendados">
-          <div class="step">
-            <div class="num">1</div>
-            <div>
-              <strong>Revisa tu recibo</strong>
-              <p>Verifica conceptos, periodos y montos antes de pagar.</p>
-            </div>
-          </div>
-          <div class="step">
-            <div class="num">2</div>
-            <div>
-              <strong>Usa canales oficiales</strong>
-              <p>Paga a través de entidades confiables: bancos, app oficial o puntos autorizados.</p>
-            </div>
-          </div>
-          <div class="step">
-            <div class="num">3</div>
-            <div>
-              <strong>Guarda comprobantes</strong>
-              <p>Conserva el recibo o captura como respaldo por si hay inconsistencias.</p>
-            </div>
-          </div>
-        </div>
-
+      <div class="card">
+        <h3>Historial Crediticio</h3>
+        <p>Mantener tus obligaciones al día fortalece tu perfil financiero, facilitando el acceso a futuros créditos y beneficios bancarios.</p>
       </div>
-
-      <aside class="card" aria-label="Consulta rápida">
-        <span class="badge">Consulta rápida</span>
-        <h3>Busca tu cuenta</h3>
-        <p>Realiza una búsqueda simulada por número de contrato para ver información de servicio y alternativas de pago.</p>
-
-        <div style="margin-top:12px">
-          <label class="small-muted" for="quickContract">Número de contrato</label>
-          <input id="quickContract" class="input" placeholder="Ej: 123-456-789" aria-label="Número de contrato" />
-          <button class="cta-button" id="quickLookup" style="width:100%;margin-top:12px">Buscar</button>
-          <div id="quickResult" style="margin-top:12px;color:var(--muted);font-size:0.95rem"></div>
-        </div>
-
-        <div style="margin-top:12px" class="small-muted">
-          <strong>Nota:</strong> Esta es una demostración que simula resultados para mostrar cómo organizar tus pagos.
-        </div>
-      </aside>
-    </section>
-
-    <section class="testimonials" aria-labelledby="testimonials-title">
-      <h3 id="testimonials-title" style="margin-bottom:8px">Testimonios</h3>
-      <div id="testList">
-        <div class="test-item active" data-index="0">
-          <p>"Gracias a la alerta de vencimiento pude evitar el corte de luz. Muy útil la sección de avisos."</p>
-          <div class="who">— Claudia, usuaria</div>
-        </div>
-        <div class="test-item" data-index="1">
-          <p>"El simulador me ayudó a planear cómo cubrir varios recibos sin quedarme corto a fin de mes."</p>
-          <div class="who">— Jorge, comerciante</div>
-        </div>
-        <div class="test-item" data-index="2">
-          <p>"La información clara sobre sanciones y pasos a seguir fue lo más valioso para mi familia."</p>
-          <div class="who">— Luisa, trabajadora independiente</div>
-        </div>
-      </div>
-      <div class="test-controls" role="tablist" aria-label="Controles testimonios">
-        <div class="dot active" data-dot="0" tabindex="0" aria-label="Testimonio 1"></div>
-        <div class="dot" data-dot="1" tabindex="0" aria-label="Testimonio 2"></div>
-        <div class="dot" data-dot="2" tabindex="0" aria-label="Testimonio 3"></div>
+      <div class="card">
+        <h3>Inversión Social</h3>
+        <p>Tus aportes permiten el mantenimiento de redes eléctricas, sistemas de acueducto y mejora de servicios de limpieza urbana.</p>
       </div>
     </section>
 
-    <section class="faq" aria-labelledby="faq-title">
-      <h3 id="faq-title" style="margin-bottom:8px">Preguntas frecuentes</h3>
-
-      <div class="qa" id="q1">
-        <button aria-expanded="false">¿Qué pasa si pago tarde?</button>
-        <div class="answer">
-          Los proveedores suelen aplicar recargos, intereses y, tras un tiempo, pueden suspender el servicio. Las consecuencias exactas varían según la empresa y la normativa local.
-        </div>
-      </div>
-
-      <div class="qa" id="q2">
-        <button aria-expanded="false">¿Dónde puedo pagar de forma segura?</button>
-        <div class="answer">
-          En bancos autorizados, aplicaciones oficiales de las empresas prestadoras de servicio, y puntos de recaudo certificados. Evita pagar en sitios no verificados.
-        </div>
-      </div>
-
-      <div class="qa" id="q3">
-        <button aria-expanded="false">¿Conservo derecho a devolución si pagué de más?</button>
-        <div class="answer">
-          Generalmente sí; contacta al proveedor con el comprobante para gestionar el reembolso o crédito en facturas futuras.
-        </div>
+    <section class="details">
+      <h2>Preguntas Frecuentes</h2>
+      <p style="text-align: center; margin-bottom: 20px;">Información actualizada para la gestión de tus facturas.</p>
+      
+      <div class="cta-container">
+        <button class="cta-button" id="mainAction">Gestionar Mis Recibos</button>
       </div>
     </section>
+  </main>
 
-    <footer>
-      <div class="contact" aria-label="Formulario de contacto">
-        <div style="min-width:220px;flex:1">
-          <div class="field">
-            <label class="small-muted" for="name">Nombre</label>
-            <input id="name" class="input" placeholder="Tu nombre" />
-          </div>
-        </div>
-        <div style="min-width:220px;flex:2">
-          <div class="field">
-            <label class="small-muted" for="email">Correo</label>
-            <input id="email" class="input" placeholder="correo@ejemplo.com" />
-          </div>
-        </div>
-
-        <div style="display:flex;gap:8px;align-items:center">
-          <button class="nav-btn primary" id="sendContact">Enviar</button>
-        </div>
-      </div>
-
-      <div class="small" style="flex-basis:100%;margin-top:10px">© <span id="year"></span> Recibos al Día · Información de referencia y herramientas de organización</div>
-    </footer>
-  </div>
-
-  <!-- Modal (consulta, simulador, guía) -->
-  <div class="modal-backdrop" id="modal" aria-hidden="true" role="dialog" aria-modal="true" aria-label="Consulta de recibos">
-    <div class="modal" role="document">
-      <div style="display:flex;justify-content:space-between;align-items:center;margin-bottom:8px">
-        <h3 style="margin:0">Herramientas de consulta y simulador</h3>
-        <div><button class="close-btn" id="closeModal">Cerrar</button></div>
-      </div>
-
-      <div class="grid-2">
-        <div>
-          <div class="field" style="margin-bottom:10px">
-            <label class="small-muted" for="contract">Número de contrato o cédula</label>
-            <input id="contract" class="input" placeholder="Ej: 123-456-789" />
-          </div>
-
-          <button class="cta-button" id="lookupBtn" style="margin-bottom:12px">Consultar registro</button>
-
-          <div id="lookupOutput" class="small-muted" aria-live="polite"></div>
-
-          <hr style="border:none;height:1px;background:rgba(255,255,255,0.03);margin:12px 0;border-radius:4px">
-
-          <h4 style="margin-bottom:8px">Simulador de pago</h4>
-          <div class="field">
-            <label class="small-muted" for="billAmount">Monto del recibo (COP)</label>
-            <input id="billAmount" type="number" class="input" placeholder="0" min="0" />
-          </div>
-          <div class="field">
-            <label class="small-muted" for="daysLate">Días de retraso</label>
-            <input id="daysLate" type="number" class="input" placeholder="0" min="0" />
-            <div class="small-muted">El simulador ofrece un cálculo aproximado usando una tasa de interés diaria de referencia.</div>
-          </div>
-          <button class="nav-btn primary" id="simulateBtn" style="margin-top:10px">Simular recargos</button>
-
-          <div id="simResult" style="margin-top:12px;color:var(--muted)"></div>
-        </div>
-
-        <aside style="padding-left:12px">
-          <h4 style="margin-bottom:8px">Guía rápida</h4>
-          <p class="small-muted">Sigue estos pasos para pagar de forma segura:</p>
-          <ol class="small-muted" style="margin-top:8px">
-            <li>Identifica el número de contrato o documento en tu factura.</li>
-            <li>Valida el monto y periodo facturado.</li>
-            <li>Paga a través de bancos, app oficial o puntos autorizados.</li>
-            <li>Conserva y registra tu comprobante.</li>
-          </ol>
-
-          <div style="margin-top:12px">
-            <h4 style="margin-bottom:6px">Consejos</h4>
-            <ul class="small-muted">
-              <li>Programa recordatorios en tu calendario.</li>
-              <li>Si el monto es alto, pregunta por planes de pago.</li>
-              <li>Revisa si aplican beneficios sociales o subsidios.</li>
-            </ul>
-          </div>
-        </aside>
-      </div>
+  <div id="infoModal" class="modal">
+    <div class="modal-content">
+      <h2 style="color: var(--primary); margin-bottom: 15px;">Módulo de Consulta</h2>
+      <p id="modalText">Estamos cargando el portal de pagos seguro. Por favor, espera un momento...</p>
+      <button onclick="closeModal()" style="margin-top: 20px; border: none; background: #eee; padding: 10px 20px; border-radius: 5px; cursor: pointer;">Cerrar</button>
     </div>
   </div>
 
+  <footer>
+    <p>&copy; 2024 Portal de Concienciación Ciudadana. Información de interés público.</p>
+  </footer>
+
   <script>
-    // Utilidades y comportamiento de la página
-    (function(){
-      // Año dinámico
-      document.getElementById('year').textContent = new Date().getFullYear();
+    document.addEventListener('DOMContentLoaded', () => {
+      const mainBtn = document.getElementById('mainAction');
+      const modal = document.getElementById('infoModal');
+      const modalText = document.getElementById('modalText');
 
-      // Abrir/cerrar modal
-      const modal = document.getElementById('modal');
-      const openBtns = [document.getElementById('openModalBtn'), document.getElementById('ctaPrimary')];
-      openBtns.forEach(b => b.addEventListener('click', openModal));
-      document.getElementById('closeModal').addEventListener('click', closeModal);
-      modal.addEventListener('click', function(e){
-        if(e.target === modal) closeModal();
-      });
-      function openModal(){
-        modal.style.display = 'grid';
-        modal.setAttribute('aria-hidden','false');
-        // accessible focus trap basic
-        setTimeout(()=> document.getElementById('contract').focus(),80);
-      }
-      function closeModal(){
-        modal.style.display = 'none';
-        modal.setAttribute('aria-hidden','true');
-        // return focus to primary CTA
-        document.getElementById('ctaPrimary').focus();
-      }
-
-      // Scroll to info
-      document.getElementById('scrollToInfo').addEventListener('click', function(){
-        document.getElementById('infoGrid').scrollIntoView({behavior:'smooth',block:'center'});
-      });
-
-      // Quick lookup (simulado)
-      document.getElementById('quickLookup').addEventListener('click', function(){
-        const v = document.getElementById('quickContract').value.trim();
-        const out = document.getElementById('quickResult');
-        if(!v){ out.textContent = 'Ingrese un número de contrato para simular la búsqueda.'; return; }
-        // Simulación: crear un resultado aleatorio para demostración
-        const services = ['Energía', 'Agua', 'Gas domiciliario', 'Internet'];
-        const service = services[v.length % services.length];
-        const amount = (Math.abs(hashCode(v)) % 150000) + 20000;
-        out.innerHTML = 'Contrato: <strong>'+escapeHtml(v)+'</strong><br>Servicio: <strong>'+service+'</strong><br>Saldo aproximado: <strong>$'+formatNumber(amount)+'</strong>';
-        // guardar último contrato en localStorage
-        try{ localStorage.setItem('last_contract', v); }catch(e){}
-      });
-
-      // Lookup detallado en modal (simulado)
-      document.getElementById('lookupBtn').addEventListener('click', function(){
-        const v = document.getElementById('contract').value.trim();
-        const out = document.getElementById('lookupOutput');
-        if(!v){ out.textContent = 'Ingrese número de contrato o cédula para consultar.'; return; }
-        // Simular respuesta con desglose
-        const amount = (Math.abs(hashCode(v)) % 180000) + 30000;
-        const dueDate = addDays(new Date(), -((Math.abs(hashCode(v)) % 40)));
-        out.innerHTML = '<strong>Servicio:</strong> Energía eléctrica<br><strong>Monto: </strong>$'+formatNumber(amount)+'<br><strong>Vencimiento:</strong> '+dueDate.toLocaleDateString();
-      });
-
-      // Simulador de recargos
-      document.getElementById('simulateBtn').addEventListener('click', function(){
-        const rawAmount = Number(document.getElementById('billAmount').value) || 0;
-        const daysLate = Number(document.getElementById('daysLate').value) || 0;
-        const out = document.getElementById('simResult');
-        if(rawAmount <= 0){ out.textContent = 'Introduce un monto válido mayor a 0.'; return; }
-        // Cálculo aproximado: tasa diaria de referencia 0.05% (ejemplo), penalidad fija
-        const dailyRate = 0.0005; // 0.05% diario (ejemplo informativo)
-        const penalty = Math.min(0.05 * rawAmount, 20000); // penalidad máxima
-        const interest = rawAmount * dailyRate * daysLate;
-        const total = Math.round(rawAmount + interest + penalty);
-        out.innerHTML = 'Recargo estimado: $'+formatNumber(Math.round(interest))+'<br>Penalidad aproximada: $'+formatNumber(Math.round(penalty))+'<br><strong>Total estimado a pagar:</strong> $'+formatNumber(total) + '<div class="small-muted" style="margin-top:8px">Este cálculo es aproximado y solo para ayuda organizativa. Verifica con tu proveedor los valores oficiales.</div>';
-      });
-
-      // Guardar contacto y validación básica
-      document.getElementById('sendContact').addEventListener('click', function(){
-        const name = document.getElementById('name').value.trim();
-        const email = document.getElementById('email').value.trim();
-        if(!name || !email || !validateEmail(email)){
-          alert('Por favor ingresa nombre y correo válidos.');
-          return;
-        }
-        // Simular envío: guardar en localStorage
-        try{
-          const contacts = JSON.parse(localStorage.getItem('contacts') || '[]');
-          contacts.push({name, email, date: new Date().toISOString()});
-          localStorage.setItem('contacts', JSON.stringify(contacts));
-        }catch(e){}
-        alert('Gracias, tu solicitud fue registrada (simulado).');
-        document.getElementById('name').value='';
-        document.getElementById('email').value='';
-      });
-
-      // Testimonios carousel simple
-      const dots = document.querySelectorAll('.dot');
-      const items = document.querySelectorAll('.test-item');
-      let idx = 0;
-      function showTest(i){
-        items.forEach(it => it.classList.remove('active'));
-        dots.forEach(d => d.classList.remove('active'));
-        items[i].classList.add('active');
-        dots[i].classList.add('active');
-      }
-      dots.forEach(d => d.addEventListener('click', () => { idx = Number(d.dataset.dot); showTest(idx); }));
-      // rotar cada 6s
-      setInterval(()=>{ idx = (idx+1) % items.length; showTest(idx); }, 6000);
-
-      // FAQ accordion
-      document.querySelectorAll('.qa').forEach(q=>{
-        const btn = q.querySelector('button');
-        btn.addEventListener('click', ()=>{
-          const open = q.classList.toggle('open');
-          btn.setAttribute('aria-expanded', String(open));
-        });
-      });
-
-      // small helpers
-      function hashCode(str){
-        let h=0; for(let i=0;i<str.length;i++){ h = ((h<<5)-h)+str.charCodeAt(i); h |= 0; } return h;
-      }
-      function formatNumber(n){ return n.toString().replace(/\B(?=(\d{3})+(?!\d))/g, "."); }
-      function addDays(date, days){ const d=new Date(date); d.setDate(d.getDate()+days); return d; }
-      function validateEmail(e){ return /^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(e); }
-      function escapeHtml(s){ return String(s).replace(/[&<>"']/g, function(m){ return {'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#039;'}[m]; }); }
-
-      // Accessibility: allow Enter on dot controls
-      dots.forEach(d => {
-        d.addEventListener('keydown', e => {
-          if(e.key === 'Enter' || e.key === ' ') {
-            e.preventDefault();
-            d.click();
+      // Animación suave de scroll para el contenido
+      const cards = document.querySelectorAll('.card');
+      window.addEventListener('scroll', () => {
+        cards.forEach(card => {
+          const cardTop = card.getBoundingClientRect().top;
+          if(cardTop < window.innerHeight - 50) {
+            card.style.opacity = '1';
           }
         });
       });
 
-      // Restore last contract if exists
-      try{
-        const last = localStorage.getItem('last_contract');
-        if(last) document.getElementById('quickContract').value = last;
-      }catch(e){}
-    })();
+      // Acción del botón principal
+      mainBtn.addEventListener('click', () => {
+        modal.style.display = 'flex';
+        
+        // Simulación de carga de datos sin redirección
+        let dots = 0;
+        const interval = setInterval(() => {
+          dots = (dots + 1) % 4;
+          modalText.textContent = "Conectando con la pasarela de pagos" + ".".repeat(dots);
+        }, 500);
+
+        setTimeout(() => {
+          clearInterval(interval);
+          modalText.innerHTML = "<strong>Servicio disponible:</strong> El sistema de consulta está activo. Por favor, selecciona tu entidad prestadora en el siguiente paso.";
+        }, 3000);
+      });
+    });
+
+    function closeModal() {
+      document.getElementById('infoModal').style.display = 'none';
+    }
+
+    // Cerrar modal al hacer clic fuera
+    window.onclick = function(event) {
+      const modal = document.getElementById('infoModal');
+      if (event.target == modal) {
+        modal.style.display = "none";
+      }
+    }
   </script>
 </body>
 </html>
